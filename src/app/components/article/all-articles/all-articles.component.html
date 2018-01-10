@@ -1,0 +1,12 @@
+<div *ngFor="let article of articles; let i = index">
+    <app-article [article]="article"></app-article>
+
+    <div class="btn-group pull-center" *ngIf="authService.isUserAdmin() || article.isAuthor">
+        <button class="btn btn-warning" (click)="editArticle(article)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteArticle(article._id, i)">Delete</button>
+    </div>
+    <br />
+    <br />
+</div>
+<br />
+<br />

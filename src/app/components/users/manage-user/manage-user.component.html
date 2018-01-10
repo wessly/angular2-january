@@ -1,0 +1,24 @@
+<br />
+<img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699505-icon-27-one-finger-click-128.png" class="rounded mx-auto d-block"
+    alt="...">
+<br />
+<br />
+<form (ngSubmit)="submitEditUserForm(editUserForm)" [formGroup]="editUserForm">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input formControlName="username" type="text" class="form-control" name="username" id="username">
+    </div>
+    <div formGroupName="confirmPasswords">
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" class="form-control" name="password" id="password">
+        </div>
+        <div class="form-group">
+            <label for="passwordRepeat">Password repeat</label>
+            <input formControlName="repeatPassword" type="password" class="form-control" name="password_rep" id="password_rep">
+        </div>
+    </div>
+    <button type="submit" [disabled]="editUserForm.status !== 'VALID'" class="btn btn-success">Update profile</button>
+</form>
+<br />
+<button class="btn btn-danger" (click)="deleteUser()">Delete account</button>

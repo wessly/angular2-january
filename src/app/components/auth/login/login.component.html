@@ -1,0 +1,26 @@
+<br />
+<img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698844-icon-117-lock-stripes-128.png" class="rounded mx-auto d-block"
+    alt="...">
+<br />
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMsg">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Oh snap!</strong> {{ errorMsg }}
+</div>
+<br />
+<form (ngSubmit)="submitLoginForm(loginForm)" [formGroup]="loginForm">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input formControlName="username" type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp"
+            placeholder="Enter username for login" autofocus>
+        <small id="usernameHelp" class="form-text text-muted">Username is case-insensitive.</small>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp"
+            placeholder="Enter your password to login">
+        <small id="passwordHelp" class="form-text text-muted">Password must be min 3 characters.</small>
+    </div>
+    <button type="submit" [disabled]="loginForm.status !== 'VALID'" class="btn btn-primary">Continue</button>
+</form>

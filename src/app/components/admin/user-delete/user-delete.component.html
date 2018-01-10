@@ -1,0 +1,31 @@
+<br />
+<img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698761-icon-20-sad-face-eyebrows-128.png" class="rounded mx-auto d-block"
+    alt="...">
+<br />
+<br />
+<table class="table" *ngIf="authService.isUserAdmin()">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Username</th>
+      <th>Created</th>
+      <th>Delete user</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users; let i = index" class="table-striped">
+    <tr>
+      <th scope="row">{{i+1}}</th>
+      <td>
+        {{user.username}} 
+        <i *ngIf="user.isAdmin">(Admin)</i>
+        <i *ngIf="!user.isAdmin">(Normal user)</i>
+      </td>
+      <td>{{user._kmd.lmt}}</td>
+      <td class="pull-right">
+        <button class="btn btn-danger" (click)="deleteUser(user._id, i)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

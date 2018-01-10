@@ -1,0 +1,58 @@
+<br />
+<img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698806-icon-62-face-moustache-128.png" class="rounded mx-auto d-block"
+  alt="...">
+<br />
+<br />
+<table class="table" *ngIf="authService.isUserAdmin()">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Username</th>
+      <th>Created at</th>
+      <th>Edit user</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users; let i = index" class="table-striped table-bordered">
+    <tr>
+      <th scope="row">{{i+1}}</th>
+      <td>
+        {{user.username}}
+        <i *ngIf="user.isAdmin">(Admin)</i>
+        <i *ngIf="!user.isAdmin">(Normal user)</i>
+      </td>
+      <td>{{user._kmd.lmt}}</td>
+      <td class="pull-right">
+        <button class="btn btn-warning" (click)="showEditForm(user)">
+          Edit
+        </button>
+      </td>
+    </tr>
+    <div *ngIf="user.edit" class="card" style="padding: 25px;">
+      <form (ngSubmit)="submitUserEditForm(userEditForm)" [formGroup]="userEditForm">
+        <div class="form-group">
+            <label for="username">New username</label>
+            <input formControlName="username" type="text" class="form-control" name="username" id="username" placeholder="{{user.username}}">
+        </div>
+        <div formGroupName="confirmPasswords">
+          <div class="form-group">
+            <label for="password">New Password</label>
+            <input formControlName="password" type="password" class="form-control" aria-describedby="basic-addon1" name="password" id="password">
+          </div>
+          <div class="form-group">
+            <label for="password_rep">Confirm Password</label>
+            <input formControlName="repeatPassword" type="password" class="form-control" name="password_rep" id="password_rep">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="isAdmin">Privileges</label>
+          <select formControlName="isAdmin" class="form-control" name="isAdmin" id="isAdmin">
+            <option value="false">Normal user</option>
+            <option value="true">Administrator</option>
+          </select>
+        </div>
+        <button type="submit" [disabled]="userEditForm.status !== 'VALID'" class="btn btn-success">Update</button>
+        <button value="Cancel" class="btn btn-secondary" (click)="hideEditForm(user)">Cancel</button>
+    </form>
+    </div>
+  </tbody>
+</table>

@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+        <span class="badge badge-primary" *ngIf="article.status === '0'">Public article</span>
+        <span class="badge badge-primary" *ngIf="article.status === '1'">Private article</span>
+        <span class="badge badge-danger">{{article.category}}</span>
+    </div>
+    <img *ngIf="article.image" class="card-img-top" src="{{article.image}}" alt="Card image cap">
+    <div class="card-block" style="padding: 25px;">
+        <br />
+        <h4 class="card-title"><strong>{{article.title}}</strong></h4>
+        <blockquote class="blockquote">
+            <p class="mb-0">{{article.content}}</p>
+            <br />
+            <footer class="blockquote-footer">
+                <cite>{{article.createdBy}}</cite>
+            </footer>
+        </blockquote>
+    </div>
+    <div class="card-footer text-muted">
+        {{article.date | date}}
+    </div>
+</div>
