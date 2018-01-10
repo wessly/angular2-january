@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
     public errorMsg: string
     public registerForm: FormGroup
-    public user: User = new User('', '')
+    public user: User = new User('', '', '', false)
 
     constructor(
         private fb: FormBuilder,
@@ -70,7 +70,7 @@ export class RegisterComponent implements OnInit {
             if (res._kmd.authtoken) {
                 this.router.navigateByUrl('/login')
                     .then(() => {
-                        this.toastr.success('Register successful!')
+                        this.toastr.success('Register successfull.', null, {toastLife: 3000});
                     })
             }
         }, errRes => {

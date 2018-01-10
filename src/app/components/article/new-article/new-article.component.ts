@@ -33,9 +33,9 @@ export class NewArticleComponent implements OnInit {
     ngOnInit() {
 
         this.articleForm = this.fb.group({
-            category: ['', [Validators.required, Validators.min(3), Validators.max(55)]],
-            title: ['', [Validators.required, Validators.min(3), Validators.max(150)]],
-            content: ['', [Validators.required, Validators.min(3), Validators.max(5000)]],
+            category: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(55)]],
+            title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(150)]],
+            content: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(5000)]],
             image: [''],
             status: ['', [Validators.required]],
         })

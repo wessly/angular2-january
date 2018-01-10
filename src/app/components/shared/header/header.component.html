@@ -7,48 +7,65 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/">Home
+                <a class="nav-link" routerLink="/">
+                    <i class="ion-flash"></i> Home
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li>
-                <a class="nav-link" routerLink="/article/all">Articles</a>
+                <a class="nav-link" routerLink="/article/all">
+                    <i class="ion-ios-paper-outline"></i> Articles
+                </a>
             </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item dropdown pull-right" *ngIf="!authService.isUserLogged()">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    Guest
+                    <i class="ion-ios-person"></i> Guest
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/login">Login</a>
+                    <a class="dropdown-item" routerLink="/login">
+                        <i class="ion-ios-unlocked-outline"></i> Login
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" routerLink="/register">Register</a>
+                    <a class="dropdown-item" routerLink="/register">
+                        <i class="ion-ios-personadd-outline"></i> Register
+                    </a>
                 </div>
             </li>
             <li class="nav-item dropdown" *ngIf="authService.isUserLogged()">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    {{authService.currentUser.username | uppercase}}`s menu
+                    <i class="ion-ios-person"></i> {{authService.currentUser.username | lowercase }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/article/new">New Article</a>
+                    <a class="dropdown-item" routerLink="/article/new">
+                        <i class="ion-ios-compose-outline"></i> New Article
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" routerLink="/user/edit">Manage Profile</a>
+                    <a class="dropdown-item" routerLink="/user/edit">
+                        <i class="ion-ios-color-wand-outline"></i> Manage Profile
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" routerLink="/logout">Logout</a>
+                    <a class="dropdown-item" routerLink="/logout">
+                        <i class="ion-ios-close-empty"></i> Logout
+                    </a>
                 </div>
             </li>
             <li class="nav-item dropdown" *ngIf="authService.isUserAdmin()">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    Admin menu
+                    <i class="ion-android-settings"></i> Administration
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/admin/user/edit">Edit user</a>
+                    <a class="dropdown-item" routerLink="/admin/user/edit">
+                        <i class="ion-ios-cog-outline"></i> Edit user
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" routerLink="/admin/user/delete">Delete user</a>
+                    <a class="dropdown-item" routerLink="/admin/user/delete">
+                        <i class="ion-ios-trash-outline"></i> Delete user
+                    </a>
                 </div>
             </li>
         </ul>

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
     public errorMsg: string
     public loginForm: FormGroup
-    public user: User = new User('', '')
+    public user: User = new User('', '', '', false)
     private sub$
 
     @Output() onReached5 = new EventEmitter<boolean>()
